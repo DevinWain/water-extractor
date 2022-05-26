@@ -1,0 +1,4 @@
+/server/data/img
+/.vscode
+/algorithm_service/algorithm_service/__pycache__
+/algorithm_service/algorithm_service/utils/__pycache__

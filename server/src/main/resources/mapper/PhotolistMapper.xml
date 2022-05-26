@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wain.server.dao.PhotolistMapper">
+  <resultMap id="BaseResultMap" type="com.wain.server.domain.Photolist">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="createTime" jdbcType="DATE" property="createtime" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from photolist
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wain.server.domain.Photolist">
+    insert into photolist (id, createTime, url
+      )
+    values (#{id,jdbcType=INTEGER}, #{createtime,jdbcType=DATE}, #{url,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.wain.server.domain.Photolist">
+    update photolist
+    set createTime = #{createtime,jdbcType=DATE},
+      url = #{url,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, createTime, url
+    from photolist
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, createTime, url
+    from photolist
+  </select>
+</mapper>
